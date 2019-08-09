@@ -8,8 +8,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,20 +19,25 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BreakTimeCalculator breakTimeCalculator = null;
+        calculator();
+    }
+
+    static void calculator() throws IOException {
         JFrame frame = new JFrame("text");
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setCurrentDirectory(new File("."));
         FileFilter filter = new FileNameExtensionFilter("Excel file", "xls", "xlsx");
         jFileChooser.setFileFilter(filter);
         frame.add(jFileChooser);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         jFileChooser.showOpenDialog(frame);
 
         File excelFile = jFileChooser.getSelectedFile();
-        File outputFile = new File("inputFileName" + "_output.xlsx");
+        File outputFile = new File(jFileChooser.getSelectedFile().getName().replaceFirst("[.][^.]+$", "") + "_output.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
         FileOutputStream fos = new FileOutputStream(outputFile);
+        frame.dispose();
 
         String input = "ADI,SOYADI,HARTAR,GUN,UYARILAR,GIRIS,CIKIS,OGLEN CIKIS,OGLEN DONUS,NET\n";
         List<String> startrownumbers = new ArrayList<String>();
@@ -60,7 +63,7 @@ public class Main {
                 if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
                     value = row.getCell(3).toString();
                     startrownumbers.add(row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes());
-                    if (!lasthourkeepertemporarily.isEmpty() && keeper == lasthourkeepertemporarily) {
+                    if (!lasthourkeepertemporarily.isEmpty() && keeper.equals(lasthourkeepertemporarily)) {
                         endsrownumbers.add(lasthourkeepertemporarily);
                     }
                     while (cellIterator.hasNext()) {
@@ -86,7 +89,7 @@ public class Main {
                 } else if (row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(5))) {
                     lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
                     keeper = lasthourkeepertemporarily;
-                } else if (lasthourkeepertemporarily == keeper && !row.getCell(3).toString().equals(value)) {
+                } else if (lasthourkeepertemporarily.equals(keeper) && !row.getCell(3).toString().equals(value)) {
                     endsrownumbers.add(lasthourkeepertemporarily);
                     keeper = "000";
                 }
@@ -103,7 +106,7 @@ public class Main {
                 }
             }
         }
-        Pair<List<List<String>>, List<Long>> p = breakTimeCalculator.calculate();
+        Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate();
         List<List<String>> breakTime = p.getKey();
         List<Long> list = p.getValue();
         for (int i = breakTime.size() - 2; i > 0; i--) {
@@ -136,7 +139,7 @@ public class Main {
                             cell.setCellStyle(style);
                         }
 
-                        cell.setCellValue(String.format("%s dk ",list.get(rownum-2)));
+                        cell.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
                     }
                     Cell cell = row.createCell(cellnum++);
                     cell.setCellValue(obj);

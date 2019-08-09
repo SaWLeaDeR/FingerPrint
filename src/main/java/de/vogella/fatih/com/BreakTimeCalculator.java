@@ -12,10 +12,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class BreakTimeCalculator {
-    private static FindBiggest findBiggest;
+class BreakTimeCalculator {
+    private BreakTimeCalculator(){
+        throw new IllegalStateException("BreakTimeCalculator Class");
+    }
 
-    public static Pair<List<List<String>>, List<Long>> calculate() throws IOException {
+    static Pair<List<List<String>>, List<Long>> calculate() throws IOException {
         File excelFile = new File("Book2.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
 
@@ -43,8 +45,8 @@ public class BreakTimeCalculator {
                     if (cell.getColumnIndex() == 4) {
                         if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
                             value = row.getCell(3).toString();
-                            breaktime.add(findBiggest.findBiggest(breaktimeends, breaktimestart));
-                            list.add(findBiggest.difference(breaktimeends, breaktimestart));
+                            breaktime.add(FindBiggest.findBiggest(breaktimeends, breaktimestart));
+                            list.add(FindBiggest.difference(breaktimeends, breaktimestart));
 
                             breaktimeends.clear();
                             breaktimestart.clear();
@@ -58,14 +60,14 @@ public class BreakTimeCalculator {
                 }
                 if (!DateUtil.isCellDateFormatted(row.getCell(4)) && !DateUtil.isCellDateFormatted(row.getCell(5))) {
                     breaktime.add(zerobreaktime);
-                    list.add(0l);
+                    list.add(0L);
                 }
             }
         }
         list.remove(0);
-        list.add(0l);
+        list.add(0L);
         for (int i = list.size() - 2; i > 0; i--) {
-            if (list.get(i) == 0l) {
+            if (list.get(i) == 0L) {
                 Collections.swap(list, i + 1, i);
             }
         }

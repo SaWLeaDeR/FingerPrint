@@ -5,8 +5,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class FindBiggest {
-    public static List<String> findBiggest(List<Date> endsrownumbers, List<Date> startrownumbers) {
+class FindBiggest {
+
+    private FindBiggest(){
+        throw new IllegalStateException("FindBiggest Class");
+    }
+
+    static List<String> findBiggest(List<Date> endsrownumbers, List<Date> startrownumbers) {
         long biggestTimeZone = 0;
         List<String> list = new ArrayList<String>();
         String starthour = "";
@@ -28,7 +33,7 @@ public class FindBiggest {
         return list;
     }
 
-    public static Long difference(List<Date> endsrownumbers, List<Date> startrownumbers) {
+    static Long difference(List<Date> endsrownumbers, List<Date> startrownumbers) {
         long biggestTimeZone = 0;
         int ikeeper =0;
         long biggestTimeZone1 = 0;
