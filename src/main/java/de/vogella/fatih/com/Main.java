@@ -23,6 +23,7 @@ public class Main {
         String inputFileName = JOptionPane.showInputDialog("Please Enter the Input File Name (without File Extension)");
         JFrame frame = new JFrame("text");
         JFileChooser jFileChooser = new JFileChooser();
+//        jFileChooser.setCurrentDirectory(new File(System));
         jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         frame.add(jFileChooser);
         frame.setVisible(true);
@@ -33,9 +34,6 @@ public class Main {
 //            public void actionPerformed(ActionEvent e) {
 //                if (e.ge)
 //            }
-//        });
-
-//        jFileChooser.addActionListener(new ActionListener() {
 //        });
         File excelFile = new File(inputFileName + ".xlsx");
         File outputFile = new File(inputFileName + "_output.xlsx");

@@ -69,8 +69,6 @@ public class BreakTimeCalculator {
                 Collections.swap(list, i + 1, i);
             }
         }
-        System.out.println(list);
-        System.out.println(list.size());
         breaktime.remove(0);
         breaktime.add(zerobreaktime);
         fis.close();
