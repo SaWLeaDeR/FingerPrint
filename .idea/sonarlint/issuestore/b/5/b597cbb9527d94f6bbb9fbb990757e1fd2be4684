@@ -1,0 +1,30 @@
+
+Zsquid:S1854£";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8áğÓªÇ-
+:squid:S1643Q"Use a StringBuilder instead.(ß®Ö›8áğÓªÇ-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 74 to the 15 allowed.(œû¿Ø8áğÓªÇ-
+nsquid:S2259p"QA "NullPointerException" could be thrown; "breakTimeCalculator" is nullable here.(¹›É]8áğÓªÇ-
+:squid:S1643g"Use a StringBuilder instead.(ß®Ö›8áğÓªÇ-
+:squid:S1643S"Use a StringBuilder instead.(êòíØ8áğÓªÇ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¤Š¤Ğùÿÿÿÿ8Ø“ü¯Ç-
+:squid:S1643O"Use a StringBuilder instead.(‹¸€™8áğÓªÇ-
+:squid:S1643Z"Use a StringBuilder instead.(Ï©ŠÆ8áğÓªÇ-
+dsquid:CallToDeprecatedMethodD"0Remove this use of "getHours"; it is deprecated.(£ Òßıÿÿÿÿ8áğÓªÇ-
+9squid:S3626K"Remove this redundant jump.(ÉŠ©ƒ8áğÓªÇ-
+_squid:CallToDeprecatedMethodN"0Remove this use of "getHours"; it is deprecated.(î¾¶8áğÓªÇ-
+:squid:S1643f"Use a StringBuilder instead.(êòíØ8áğÓªÇ-
+:squid:S1643l"Use a StringBuilder instead.(Ï©ŠÆ8áğÓªÇ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8ÏÄü¯Ç-
+dsquid:CallToDeprecatedMethod]"0Remove this use of "getHours"; it is deprecated.(£½Ÿ—ùÿÿÿÿ8áğÓªÇ-
+Esquid:S1481€"&Remove this unused "s" local variable.(âå±½8áğÓªÇ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§°Êªıÿÿÿÿ8Ø“ü¯Ç-
+:squid:S1643N"Use a StringBuilder instead.(î¾¶8áğÓªÇ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(çÄ·×ıÿÿÿÿ8Ø“ü¯Ç-
+:squid:S1643k"Use a StringBuilder instead.(ü©8áğÓªÇ-
+?squid:S1643P"Use a StringBuilder instead.(··ñøùÿÿÿÿ8áğÓªÇ-
+Vsquid:S4973E"9Use the "equals" method if value comparison was intended.(ç“°8áğÓªÇ-
+fsquid:CallToDeprecatedMethodD"2Remove this use of "getMinutes"; it is deprecated.(£ Òßıÿÿÿÿ8áğÓªÇ-
+fsquid:CallToDeprecatedMethodP"2Remove this use of "getMinutes"; it is deprecated.(··ñøùÿÿÿÿ8áğÓªÇ-
+:squid:S1643V"Use a StringBuilder instead.(êòíØ8áğÓªÇ-
+:squid:S1643W"Use a StringBuilder instead.(ß®Ö›8áğÓªÇ-
+\squid:S4973_"9Use the "equals" method if value comparison was intended.(ŸÂÑ­øÿÿÿÿ8áğÓªÇ-
+fsquid:CallToDeprecatedMethod]"2Remove this use of "getMinutes"; it is deprecated.(£½Ÿ—ùÿÿÿÿ8áğÓªÇ-

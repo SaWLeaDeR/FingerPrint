@@ -1,0 +1,4 @@
+
+msquid:S2095"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8¨ÓªÇ-
+Xsquid:S1118":Add a private constructor to hide the implicit public one.(â”µ8¨ÓªÇ-
+psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(‚…¬‹8¨ÓªÇ-

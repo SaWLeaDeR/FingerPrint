@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.5.3 
+Implementation-Title: org.dom4j
+Package: org.dom4j
+Implementation-Version: 1.6.1
+Built-By: Maarten
+Specification-Vendor: MetaStuff Ltd.
+Specification-Title: dom4j : XML framework for Java
+Extension-Name: dom4j
+Created-By: Apache Maven
+Build-Jdk: 1.4.2_02
+Implementation-Vendor: MetaStuff Ltd.
+Main-Class: de.vogella.fatih.com.Main
+
