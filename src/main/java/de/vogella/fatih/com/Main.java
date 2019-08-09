@@ -6,6 +6,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -20,13 +22,16 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         BreakTimeCalculator breakTimeCalculator = null;
-        String inputFileName = JOptionPane.showInputDialog("Please Enter the Input File Name (without File Extension)");
+//        String inputFileName = JOptionPane.showInputDialog("Please Enter the Input File Name (without File Extension)");
         JFrame frame = new JFrame("text");
         JFileChooser jFileChooser = new JFileChooser();
-//        jFileChooser.setCurrentDirectory(new File(System));
-        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        jFileChooser.setCurrentDirectory(new File("."));
+        FileFilter filter = new FileNameExtensionFilter("Excel file", "xls", "xlsx");
+//        jFileChooser.addChoosableFileFilter(filter);
+        jFileChooser.setFileFilter(filter);
         frame.add(jFileChooser);
         frame.setVisible(true);
+
         jFileChooser.showOpenDialog(frame);
 
 //        jFileChooser.addActionListener(new ActionListener() {
@@ -35,8 +40,8 @@ public class Main {
 //                if (e.ge)
 //            }
 //        });
-        File excelFile = new File(inputFileName + ".xlsx");
-        File outputFile = new File(inputFileName + "_output.xlsx");
+        File excelFile = jFileChooser.getSelectedFile();
+        File outputFile = new File("inputFileName" + "_output.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
         FileOutputStream fos = new FileOutputStream(outputFile);
 
