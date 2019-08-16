@@ -3,6 +3,6 @@
 ../.idea
 ../target
 ../FingerPrint.iml
-../Book2.xlsx
+../*.xlsx
 ../out/production
 *.MF
