@@ -1,2 +1,8 @@
 # Default ignored files
 /workspace.xml
+../.idea
+../target
+../FingerPrint.iml
+../Book2.xlsx
+../out/production
+*.MF
