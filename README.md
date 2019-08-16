@@ -23,8 +23,9 @@ Through various image processing techniques combined with numpy arrays and unity
 ### Used libraries
 
 1. Java 8
-2. Apache Poi
-3. Common-cli
+2. Maven Repositories
+3. Apache Poi
+4. Common-cli
 
 ### Execution
 
