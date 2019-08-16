@@ -1,6 +1,2 @@
 
-Vsquid:S1118":Add a private constructor to hide the implicit public one.(Åçàë8Ó¾ÅªÇ-
-]squid:CallToDeprecatedMethod"0Remove this use of "getHours"; it is deprecated.(›ç×¢8Ó¾ÅªÇ-
-_squid:CallToDeprecatedMethod"2Remove this use of "getMinutes"; it is deprecated.(›ç×¢8Ó¾ÅªÇ-
-]squid:CallToDeprecatedMethod"0Remove this use of "getHours"; it is deprecated.(·üÏä8Ó¾ÅªÇ-
-_squid:CallToDeprecatedMethod"2Remove this use of "getMinutes"; it is deprecated.(·üÏä8Ó¾ÅªÇ-
+Xsquid:S1118":Add a private constructor to hide the implicit public one.(Åçàë8ÕÎ±Ç-
