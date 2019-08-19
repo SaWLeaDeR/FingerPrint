@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.*;
 
 class BreakTimeCalculator {
-    private BreakTimeCalculator(){
+    private BreakTimeCalculator() {
         throw new IllegalStateException("BreakTimeCalculator Class");
     }
 
@@ -22,7 +22,6 @@ class BreakTimeCalculator {
         FileInputStream fis = new FileInputStream(excelFile);
 
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
-
         XSSFSheet sheet = workbook.getSheetAt(0);
 
         Iterator<Row> rowIt = sheet.iterator();
@@ -76,4 +75,5 @@ class BreakTimeCalculator {
         fis.close();
         return new Pair<List<List<String>>, List<Long>>(breaktime, list);
     }
+
 }

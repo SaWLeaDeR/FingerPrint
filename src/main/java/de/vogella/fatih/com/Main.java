@@ -12,17 +12,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         calculator();
     }
 
-    static void calculator() throws IOException {
+    static void calculator() throws IOException, ParseException {
         JFrame frame = new JFrame("text");
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setCurrentDirectory(new File("."));
@@ -85,7 +86,6 @@ public class Main {
                         }
                     }
                     input += "\n";
-
                 } else if (row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(5))) {
                     lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
                     keeper = lasthourkeepertemporarily;
@@ -133,7 +133,7 @@ public class Main {
                 } else {
                     if (cellnum == 4) {
                         Cell cell = row.createCell(cellnum++);
-                        if (list.get(rownum - 2) > 30l) {
+                        if (list.get(rownum - 2) > 30L) {
                             cell.setCellStyle(style1);
                         } else {
                             cell.setCellStyle(style);
@@ -146,6 +146,7 @@ public class Main {
                     if (cellnum == 6) {
                         Cell cell3 = row.createCell(cellnum++);
                         cell3.setCellValue(endsrownumbers.get(rownum - 2));
+                        cell3.setCellStyle(style);
                     }
                     if (cellnum == 7) {
                         Cell cell4 = row.createCell(cellnum++);
@@ -157,9 +158,28 @@ public class Main {
                     }
                 }
             }
-            Cell cell = row.createCell(cellnum++);
-            cell.setCellFormula("G" + rownum + "-F" + rownum + "-I" + rownum + "+H" + rownum);
-            cell.setCellStyle(style);
+            if (rownum == 1) {
+                Cell cell = row.createCell(cellnum++);
+                cell.setCellValue("");
+
+            } else if (endsrownumbers.get(rownum - 2).contains("10:5") || startrownumbers.get(rownum - 2).contains("15:") ||
+                    endsrownumbers.get(rownum - 2).contains("11:") ||
+                    endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("12:") ||
+                    endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("13:") ||
+                    startrownumbers.get(rownum - 2).contains("14:")) {
+                Cell cell = row.createCell(cellnum++);
+                cell.setCellFormula("G" + rownum + "-F" + rownum);
+                cell.setCellStyle(style);
+            } else {
+                Cell cell = row.createCell(cellnum++);
+                if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
+                    String a = WorkHourCalculator.Calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2));
+                    cell.setCellValue(a);
+                } else {
+                    cell.setCellValue("0:0");
+                }
+                cell.setCellStyle(style);
+            }
         }
         workbook1.write(fos);
         fos.close();
