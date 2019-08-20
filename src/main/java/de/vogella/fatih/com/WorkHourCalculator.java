@@ -14,7 +14,7 @@ class WorkHourCalculator {
     }
 
 
-    static String Calculate(String start, String end) throws ParseException {
+    static String calculate(String start, String end) throws ParseException {
 
         SimpleDateFormat df = new SimpleDateFormat("HH:mm");
         Calendar gc = new GregorianCalendar();

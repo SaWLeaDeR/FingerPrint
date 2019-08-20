@@ -13,3 +13,5 @@ R
 "src/main/java/META-INF/MANIFEST.MF,6\3\63ef5783cbf71fdf39c1fd6ae6873fd812259930
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+j
+:src/main/java/de/vogella/fatih/com/WorkHourCalculator.java,b\7\b7f2954652e3a9c603bf46e6c9af04a9518f209c

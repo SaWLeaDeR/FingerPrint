@@ -1,20 +1,23 @@
 
-:squid:S1643b"Use a StringBuilder instead.(êòíØ8Ç…ÌÉ-
-msquid:S2095."JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8»À•ÌÉ-
-:squid:S1643g"Use a StringBuilder instead.(ü©8Ç…ÌÉ-
-:squid:S1643h"Use a StringBuilder instead.(Ï©ŠÆ8Ç…ÌÉ-
-Zsquid:S1854 ";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ç“’ÌÉ-
-Dsquid:S1481|"&Remove this unused "s" local variable.(âå±½8ç“’ÌÉ-
-9squid:S3626H"Remove this redundant jump.(ÉŠ©ƒ8Ú•¶ÌÉ-
-:squid:S1643P"Use a StringBuilder instead.(êòíØ8Ç…ÌÉ-
-:squid:S1643K"Use a StringBuilder instead.(î¾¶8Ç…ÌÉ-
-gsquid:S3252 "IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8¹°ÌÉ-
-:squid:S1643c"Use a StringBuilder instead.(ß®Ö›8Ç…ÌÉ-
-:squid:S1643T"Use a StringBuilder instead.(ß®Ö›8Ç…ÌÉ-
-:squid:S1643L"Use a StringBuilder instead.(‹¸€™8Ç…ÌÉ-
-msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8»À•ÌÉ-
-?squid:S1643M"Use a StringBuilder instead.(··ñøùÿÿÿÿ8Ç…ÌÉ-
-:squid:S1643N"Use a StringBuilder instead.(ß®Ö›8Ç…ÌÉ-
-:squid:S1643S"Use a StringBuilder instead.(êòíØ8Ç…ÌÉ-
-usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 74 to the 15 allowed.(ÁŠÍÍøÿÿÿÿ8¹°ÌÉ-
-:squid:S1643W"Use a StringBuilder instead.(Ï©ŠÆ8Ç…ÌÉ-
+:squid:S1643X"Use a StringBuilder instead.(Ï©ŠÆ8ÉÜ®ÍÊ-
+:squid:S1643c"Use a StringBuilder instead.(êòíØ8ÉÜ®ÍÊ-
+?squid:S1643N"Use a StringBuilder instead.(··ñøùÿÿÿÿ8ä‡àÊÊ-
+:squid:S1643U"Use a StringBuilder instead.(ß®Ö›8ä‡àÊÊ-
+:squid:S1643h"Use a StringBuilder instead.(ü©8ÉÜ®ÍÊ-
+msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8ä‡àÊÊ-
+Zsquid:S1854©";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÉÜ®ÍÊ-
+Zsquid:S1854­";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÉÜ®ÍÊ-
+9squid:S3626I"Remove this redundant jump.(ÉŠ©ƒ8…ï¯ÍÊ-
+:squid:S1643O"Use a StringBuilder instead.(ß®Ö›8âŞ‡ÆÊ-
+:squid:S1643T"Use a StringBuilder instead.(êòíØ8ÉÜ®ÍÊ-
+:squid:S1643d"Use a StringBuilder instead.(ß®Ö›8ä‡àÊÊ-
+gsquid:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ä‡àÊÊ-
+Zsquid:S1854¢";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÉÜ®ÍÊ-
+:squid:S1643L"Use a StringBuilder instead.(î¾¶8ÉÜ®ÍÊ-
+msquid:S20950"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ä‡àÊÊ-
+:squid:S1643M"Use a StringBuilder instead.(‹¸€™8Ç…ÌÉ-
+:squid:S1643Q"Use a StringBuilder instead.(êòíØ8ÉÜ®ÍÊ-
+:squid:S1643i"Use a StringBuilder instead.(Ï©ŠÆ8ä‡àÊÊ-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 84 to the 15 allowed.(†àªÕÿÿÿÿÿ8ä‡àÊÊ-
+Dsquid:S1481}"&Remove this unused "s" local variable.(âå±½8ÉÜ®ÍÊ-
+qsquid:S2095("NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8ïğğÑÊ-

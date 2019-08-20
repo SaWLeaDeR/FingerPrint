@@ -163,17 +163,16 @@ public class Main {
                 cell.setCellValue("");
 
             } else if (endsrownumbers.get(rownum - 2).contains("10:5") || startrownumbers.get(rownum - 2).contains("15:") ||
-                    endsrownumbers.get(rownum - 2).contains("11:") ||
-                    endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("12:") ||
-                    endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("13:") ||
-                    startrownumbers.get(rownum - 2).contains("14:")) {
+                    endsrownumbers.get(rownum - 2).contains("11:") || startrownumbers.get(rownum - 2).contains("14:") ||
+                    endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("13:") ||
+                    endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("12:")) {
                 Cell cell = row.createCell(cellnum++);
                 cell.setCellFormula("G" + rownum + "-F" + rownum);
                 cell.setCellStyle(style);
             } else {
                 Cell cell = row.createCell(cellnum++);
                 if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
-                    String a = WorkHourCalculator.Calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2));
+                    String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2));
                     cell.setCellValue(a);
                 } else {
                     cell.setCellValue("0:0");
