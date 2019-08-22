@@ -71,7 +71,7 @@ public class Main {
                         Cell cell = cellIterator.next();
                         if (cell.getColumnIndex() == 5 || cell.getColumnIndex() == 4) {
                             continue;
-                        }else {
+                        } else {
                             input += cell.toString();
                             input += ",";
                         }
@@ -96,7 +96,7 @@ public class Main {
                 }
             }
         }
-        Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate();
+        Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate(jFileChooser);
         List<List<String>> breakTime = p.getKey();
         List<Long> list = p.getValue();
         for (int i = breakTime.size() - 2; i > 0; i--) {
@@ -133,9 +133,9 @@ public class Main {
                         cell2.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
                     }
 
-                    if (cellnum == 5){
+                    if (cellnum == 5) {
                         Cell cell6 = row.createCell(cellnum++);
-                        cell6.setCellValue(startrownumbers.get(rownum-2));
+                        cell6.setCellValue(startrownumbers.get(rownum - 2));
                     }
                     if (cellnum == 6) {
                         Cell cell3 = row.createCell(cellnum++);
@@ -155,7 +155,6 @@ public class Main {
             if (rownum == 1) {
                 Cell cell = row.createCell(cellnum++);
                 cell.setCellValue("");
-
             } else if (endsrownumbers.get(rownum - 2).contains("10:5") || startrownumbers.get(rownum - 2).contains("15:") ||
                     endsrownumbers.get(rownum - 2).contains("11:") || startrownumbers.get(rownum - 2).contains("14:") ||
                     endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("13:") ||

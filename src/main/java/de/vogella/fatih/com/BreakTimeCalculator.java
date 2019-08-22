@@ -7,6 +7,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,8 +18,8 @@ class BreakTimeCalculator {
         throw new IllegalStateException("BreakTimeCalculator Class");
     }
 
-    static Pair<List<List<String>>, List<Long>> calculate() throws IOException {
-        File excelFile = new File("Book2.xlsx");
+    static Pair<List<List<String>>, List<Long>> calculate(JFileChooser excelled) throws IOException {
+        File excelFile = excelled.getSelectedFile();
         FileInputStream fis = new FileInputStream(excelFile);
 
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
