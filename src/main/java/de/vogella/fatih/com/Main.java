@@ -69,18 +69,9 @@ public class Main {
                     }
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        if (cell.getColumnIndex() == 5) {
+                        if (cell.getColumnIndex() == 5 || cell.getColumnIndex() == 4) {
                             continue;
-                        } else if (cell.getColumnIndex() == 4) {
-                            if (DateUtil.isCellDateFormatted(cell)) {
-                                input += cell.getDateCellValue().getHours();
-                                input += ":";
-                                input += cell.getDateCellValue().getMinutes();
-                                input += ",";
-                            } else {
-                                input += cell.toString();
-                            }
-                        } else {
+                        }else {
                             input += cell.toString();
                             input += ",";
                         }
@@ -101,7 +92,6 @@ public class Main {
                     }
                     startrownumbers.add("0:0");
                     endsrownumbers.add("0:0");
-                    input += "00,";
                     input += "\n";
                 }
             }
@@ -131,18 +121,22 @@ public class Main {
                     Cell cell = row.createCell(cellnum++);
                     cell.setCellValue(obj);
                 } else {
-                    if (cellnum == 4) {
-                        Cell cell = row.createCell(cellnum++);
-                        if (list.get(rownum - 2) > 30L) {
-                            cell.setCellStyle(style1);
-                        } else {
-                            cell.setCellStyle(style);
-                        }
-
-                        cell.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
-                    }
                     Cell cell = row.createCell(cellnum++);
                     cell.setCellValue(obj);
+                    if (cellnum == 4) {
+                        Cell cell2 = row.createCell(cellnum++);
+                        if (list.get(rownum - 2) > 30L) {
+                            cell2.setCellStyle(style1);
+                        } else {
+                            cell2.setCellStyle(style);
+                        }
+                        cell2.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
+                    }
+
+                    if (cellnum == 5){
+                        Cell cell6 = row.createCell(cellnum++);
+                        cell6.setCellValue(startrownumbers.get(rownum-2));
+                    }
                     if (cellnum == 6) {
                         Cell cell3 = row.createCell(cellnum++);
                         cell3.setCellValue(endsrownumbers.get(rownum - 2));
