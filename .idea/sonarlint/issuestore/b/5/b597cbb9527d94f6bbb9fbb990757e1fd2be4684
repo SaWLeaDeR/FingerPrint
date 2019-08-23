@@ -1,17 +1,17 @@
 
-Dsquid:S1481s"&Remove this unused "s" local variable.(âå±½8™¼±íÊ-
-:squid:S1643L"Use a StringBuilder instead.(ß®Ö›8ä‡àÊÊ-
-9squid:S3626I"Remove this redundant jump.(ÉŠ©ƒ8™¼±íÊ-
-:squid:S1643["Use a StringBuilder instead.(ß®Ö›8ä‡àÊÊ-
-:squid:S1643O"Use a StringBuilder instead.(Ï©ŠÆ8™¼±íÊ-
-Zsquid:S1854£";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8åÙ¥Ë-
-msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8™¼±íÊ-
-:squid:S1643K"Use a StringBuilder instead.(êòíØ8™¼±íÊ-
-Zsquid:S1854œ";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8åÙ¥Ë-
-Zsquid:S1854§";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8åÙ¥Ë-
 :squid:S1643Z"Use a StringBuilder instead.(êòíØ8™¼±íÊ-
-qsquid:S2095("NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8™¼±íÊ-
-gsquid:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8™¼±íÊ-
-usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 81 to the 15 allowed.(†àªÕÿÿÿÿÿ8™¼±íÊ-
-:squid:S1643_"Use a StringBuilder instead.(Ï©ŠÆ8ä‡àÊÊ-
-msquid:S20950"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ä‡àÊÊ-
+msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8™¼±íÊ-
+:squid:S1643O"Use a StringBuilder instead.(Ï©ŠÆ8ÕÅËË-
+9squid:S3626I"Remove this redundant jump.(ÉŠ©ƒ8ÕÅËË-
+qsquid:S2095("NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8ÕÅËË-
+Dsquid:S1481s"&Remove this unused "s" local variable.(âå±½8ÕÅËË-
+:squid:S1643K"Use a StringBuilder instead.(êòíØ8™¼±íÊ-
+Zsquid:S1854¦";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÕÅËË-
+:squid:S1643_"Use a StringBuilder instead.(Ï©ŠÆ8ÕÅËË-
+:squid:S1643L"Use a StringBuilder instead.(ß®Ö›8ÕÅËË-
+msquid:S20950"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ÕÅËË-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 81 to the 15 allowed.(†àªÕÿÿÿÿÿ8ÕÅËË-
+Zsquid:S1854œ";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÕÅËË-
+Zsquid:S1854¢";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ÕÅËË-
+:squid:S1643["Use a StringBuilder instead.(ß®Ö›8ÕÅËË-
+gsquid:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÕÅËË-

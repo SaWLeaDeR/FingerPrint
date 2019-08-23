@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 class WorkHourCalculator {
 
-    private WorkHourCalculator(){
+    private WorkHourCalculator() {
         throw new IllegalStateException("WorkHourCalculator Class");
     }
 

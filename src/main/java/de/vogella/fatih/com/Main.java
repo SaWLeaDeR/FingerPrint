@@ -64,9 +64,12 @@ public class Main {
                 if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
                     value = row.getCell(3).toString();
                     startrownumbers.add(row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes());
+
                     if (!lasthourkeepertemporarily.isEmpty() && keeper.equals(lasthourkeepertemporarily)) {
                         endsrownumbers.add(lasthourkeepertemporarily);
                     }
+                    lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
+                    keeper = lasthourkeepertemporarily;
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
                         if (cell.getColumnIndex() == 5 || cell.getColumnIndex() == 4) {
