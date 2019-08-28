@@ -72,9 +72,7 @@ public class Main {
                     keeper = lasthourkeepertemporarily;
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        if (cell.getColumnIndex() == 5 || cell.getColumnIndex() == 4) {
-                            continue;
-                        } else {
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1|| cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
                             input += cell.toString();
                             input += ",";
                         }
@@ -90,8 +88,10 @@ public class Main {
                 if (!DateUtil.isCellDateFormatted(row.getCell(5)) && !DateUtil.isCellDateFormatted(row.getCell(4))) {
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        input += cell.toString();
-                        input += ",";
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1|| cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
+                            input += cell.toString();
+                            input += ",";
+                        }
                     }
                     startrownumbers.add("0:0");
                     endsrownumbers.add("0:0");
@@ -99,6 +99,7 @@ public class Main {
                 }
             }
         }
+        endsrownumbers.add(lasthourkeepertemporarily);
         Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate(jFileChooser);
         List<List<String>> breakTime = p.getKey();
         List<Long> list = p.getValue();

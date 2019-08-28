@@ -72,10 +72,10 @@ class BreakTimeCalculator {
                 Collections.swap(list, i + 1, i);
             }
         }
+
         breaktime.remove(0);
         breaktime.add(zerobreaktime);
         fis.close();
         return new Pair<List<List<String>>, List<Long>>(breaktime, list);
     }
-
 }

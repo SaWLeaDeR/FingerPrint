@@ -28,7 +28,7 @@ class FindBiggest {
         }
         list.add(starthour);
         list.add(endhour);
-        list.add(new Long(biggestTimeZone).toString());
+        list.add(Long.toString(biggestTimeZone));
         return list;
     }
 

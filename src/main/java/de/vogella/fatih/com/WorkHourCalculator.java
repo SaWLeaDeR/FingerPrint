@@ -36,10 +36,8 @@ class WorkHourCalculator {
         long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
         if (!list.get(2).contains("0:0")) {
             keeper = Integer.parseInt(list.get(2));
-            if (keeper > 60)
-                diff -= keeper;
-            else
-                diff -= 60;
+            int hour = (keeper > 60) ? keeper : 60;
+            diff -= hour;
         }
         long hours = diff / 60; //since both are ints, you get an int
         long minutes = diff % 60;
