@@ -35,7 +35,7 @@ public class Main {
         jFileChooser.showOpenDialog(frame);
 
         File excelFile = jFileChooser.getSelectedFile();
-        File outputFile = new File(jFileChooser.getSelectedFile().getName().replaceFirst("[.][^.]+$", "") + "_output.xlsx");
+        File outputFile = new File(jFileChooser.getSelectedFile().getName().replaceFirst("[.][^.]+$", "") + "-output.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
         FileOutputStream fos = new FileOutputStream(outputFile);
         frame.dispose();
@@ -168,7 +168,7 @@ public class Main {
             } else {
                 Cell cell = row.createCell(cellnum++);
                 if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
-                    String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2));
+                    String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2), breakTime.get(rownum - 2));
                     cell.setCellValue(a);
                 } else {
                     cell.setCellValue("0:0");

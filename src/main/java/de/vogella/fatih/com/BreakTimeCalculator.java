@@ -33,6 +33,7 @@ class BreakTimeCalculator {
         List<String> zerobreaktime = new ArrayList<String>();
         zerobreaktime.add("0:0");
         zerobreaktime.add("0:0");
+        zerobreaktime.add("0:0");
         List<Long> list = new ArrayList<Long>();
 
         while (rowIt.hasNext()) {

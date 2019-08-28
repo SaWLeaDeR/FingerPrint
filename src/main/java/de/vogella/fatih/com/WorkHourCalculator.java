@@ -5,17 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 class WorkHourCalculator {
+
 
     private WorkHourCalculator() {
         throw new IllegalStateException("WorkHourCalculator Class");
     }
 
 
-    static String calculate(String start, String end) throws ParseException {
-
+    static String calculate(String start, String end, List<String> list) throws ParseException {
+        int keeper = 0;
         SimpleDateFormat df = new SimpleDateFormat("HH:mm");
         Calendar gc = new GregorianCalendar();
 
@@ -32,9 +34,13 @@ class WorkHourCalculator {
 
         long diffInMillies = Math.abs(d2.getTime() - d4.getTime());
         long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
-
-        diff -= 60;
-
+        if (!list.get(2).contains("0:0")) {
+            keeper = Integer.parseInt(list.get(2));
+            if (keeper > 60)
+                diff -= keeper;
+            else
+                diff -= 60;
+        }
         long hours = diff / 60; //since both are ints, you get an int
         long minutes = diff % 60;
 

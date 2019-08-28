@@ -17,7 +17,6 @@ class FindBiggest {
         String starthour = "";
         String endhour = "";
 
-
         for (int i = 0; i < endsrownumbers.size() - 1; i++) {
             long diffInMillies = Math.abs(endsrownumbers.get(i).getTime() - startrownumbers.get(i + 1).getTime());
             long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
@@ -25,11 +24,11 @@ class FindBiggest {
                 biggestTimeZone = diff;
                 starthour = startrownumbers.get(i + 1).getHours() + ":" + startrownumbers.get(i + 1).getMinutes();
                 endhour = endsrownumbers.get(i).getHours() + ":" + endsrownumbers.get(i).getMinutes();
-
             }
         }
         list.add(starthour);
         list.add(endhour);
+        list.add(new Long(biggestTimeZone).toString());
         return list;
     }
 
