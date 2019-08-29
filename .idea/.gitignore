@@ -1,8 +1,59 @@
 # Default ignored files
 /workspace.xml
-../.idea/*
+######################
+# Intellij
+######################
+.idea/
+sonarlint/
+libraries/
+dictionaries
+artifacts
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
+
+
+######################
+# Maven
+######################
+/log/
 ../target/
-../FingerPrint.iml
-../*.xlsx
-../out/production/
-../*.MF
+
+######################
+# Package Files
+######################
+*.jar
+*.war
+*.ear
+*.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+######################
+# Logs
+######################
+*.log*
+
+######################
+# Others
+######################
+*.class
+*.*~
+*~
+.merge_file*
+
+######################
+# Maven Wrapper
+######################
+!.mvn/wrapper/maven-wrapper.jar
