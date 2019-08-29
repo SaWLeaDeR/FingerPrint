@@ -84,7 +84,6 @@ public class Main {
                         lasthourkeepertemporarily = row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes();
                         keeper = lasthourkeepertemporarily;
                     } else if (DateUtil.isCellDateFormatted(row.getCell(5))) {
-                        System.out.println(row.getCell(2) + " ----------------------------------------------------------------");
                         lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
                         keeper = lasthourkeepertemporarily;
                     }
@@ -171,7 +170,6 @@ public class Main {
             } else {
                 Cell cell = row.createCell(cellnum++);
                 if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
-                    System.out.println(startrownumbers.get(rownum - 2) + "-------" + endsrownumbers.get(rownum - 2));
                     String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2), breakTime.get(rownum - 2));
                     cell.setCellValue(a);
                 } else {
