@@ -1,7 +1,6 @@
 package de.vogella.fatih.com;
 
 import javafx.util.Pair;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,7 +10,10 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 class BreakTimeCalculator {
     private BreakTimeCalculator() {
@@ -26,7 +28,9 @@ class BreakTimeCalculator {
         XSSFSheet sheet = workbook.getSheetAt(0);
 
         Iterator<Row> rowIt = sheet.iterator();
-        String value = "";
+
+        String value = String.format("%s", sheet.getRow(2).getCell(3));
+
         List<Date> breaktimestart = new ArrayList<Date>();
         List<Date> breaktimeends = new ArrayList<Date>();
         List<List<String>> breaktime = new ArrayList<List<String>>();
@@ -38,43 +42,28 @@ class BreakTimeCalculator {
 
         while (rowIt.hasNext()) {
             Row row = rowIt.next();
-
-            Iterator<Cell> cellIterator = row.cellIterator();
             if (row.getRowNum() != 0) {
-                while (cellIterator.hasNext()) {
-                    Cell cell = cellIterator.next();
-                    if (cell.getColumnIndex() == 4) {
-                        if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
-                            value = row.getCell(3).toString();
-                            breaktime.add(FindBiggest.findBiggest(breaktimeends, breaktimestart));
-                            list.add(FindBiggest.difference(breaktimeends, breaktimestart));
+                if (!row.getCell(3).toString().equals(value)) {
+                    breaktime.add(FindBiggest.findBiggest(breaktimeends, breaktimestart));
+                    list.add(FindBiggest.difference(breaktimeends, breaktimestart));
 
-                            breaktimeends.clear();
-                            breaktimestart.clear();
-                            breaktimestart.add(row.getCell(4).getDateCellValue());
-                            breaktimeends.add(row.getCell(5).getDateCellValue());
-                        } else if (DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
-                            breaktimestart.add(row.getCell(4).getDateCellValue());
-                            breaktimeends.add(row.getCell(5).getDateCellValue());
-                        }
+                    value = row.getCell(3).toString();
+
+                    breaktimeends.clear();
+                    breaktimestart.clear();
+                    if (DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        breaktimestart.add(row.getCell(4).getDateCellValue());
+                        breaktimeends.add(row.getCell(5).getDateCellValue());
                     }
-                }
-                if (!DateUtil.isCellDateFormatted(row.getCell(4)) && !DateUtil.isCellDateFormatted(row.getCell(5))) {
-                    breaktime.add(zerobreaktime);
-                    list.add(0L);
+                } else if (DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
+                    breaktimestart.add(row.getCell(4).getDateCellValue());
+                    breaktimeends.add(row.getCell(5).getDateCellValue());
                 }
             }
         }
-        list.remove(0);
-        list.add(0L);
-        for (int i = list.size() - 2; i > 0; i--) {
-            if (list.get(i) == 0L) {
-                Collections.swap(list, i + 1, i);
-            }
-        }
+        breaktime.add(FindBiggest.findBiggest(breaktimeends, breaktimestart));
+        list.add(FindBiggest.difference(breaktimeends, breaktimestart));
 
-        breaktime.remove(0);
-        breaktime.add(zerobreaktime);
         fis.close();
         return new Pair<List<List<String>>, List<Long>>(breaktime, list);
     }

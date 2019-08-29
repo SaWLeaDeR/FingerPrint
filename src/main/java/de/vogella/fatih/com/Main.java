@@ -14,7 +14,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -61,26 +60,34 @@ public class Main {
             Iterator<Cell> cellIterator = row.cellIterator();
 
             if (row.getRowNum() != 0) {
-                if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
+                if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4))) {
                     value = row.getCell(3).toString();
                     startrownumbers.add(row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes());
 
                     if (!lasthourkeepertemporarily.isEmpty() && keeper.equals(lasthourkeepertemporarily)) {
                         endsrownumbers.add(lasthourkeepertemporarily);
                     }
-                    lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
-                    keeper = lasthourkeepertemporarily;
+                    if (DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    }
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1|| cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1 || cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
                             input += cell.toString();
                             input += ",";
                         }
                     }
                     input += "\n";
-                } else if (row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(5))) {
-                    lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
-                    keeper = lasthourkeepertemporarily;
+                } else if (row.getCell(3).toString().equals(value)) {
+                    if (DateUtil.isCellDateFormatted(row.getCell(4)) && !DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        lasthourkeepertemporarily = row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    } else if (DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        System.out.println(row.getCell(2) + " ----------------------------------------------------------------");
+                        lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    }
                 } else if (lasthourkeepertemporarily.equals(keeper) && !row.getCell(3).toString().equals(value)) {
                     endsrownumbers.add(lasthourkeepertemporarily);
                     keeper = "000";
@@ -88,7 +95,7 @@ public class Main {
                 if (!DateUtil.isCellDateFormatted(row.getCell(5)) && !DateUtil.isCellDateFormatted(row.getCell(4))) {
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1|| cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1 || cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
                             input += cell.toString();
                             input += ",";
                         }
@@ -103,11 +110,6 @@ public class Main {
         Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate(jFileChooser);
         List<List<String>> breakTime = p.getKey();
         List<Long> list = p.getValue();
-        for (int i = breakTime.size() - 2; i > 0; i--) {
-            if (breakTime.get(i).get(0).equals("0:0")) {
-                Collections.swap(breakTime, i + 1, i);
-            }
-        }
         CellStyle style = workbook1.createCellStyle();
         CellStyle style1 = workbook1.createCellStyle();
         style.setDataFormat(workbook1.getCreationHelper().createDataFormat().getFormat("HH:mm"));
@@ -169,6 +171,7 @@ public class Main {
             } else {
                 Cell cell = row.createCell(cellnum++);
                 if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
+                    System.out.println(startrownumbers.get(rownum - 2) + "-------" + endsrownumbers.get(rownum - 2));
                     String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2), breakTime.get(rownum - 2));
                     cell.setCellValue(a);
                 } else {
