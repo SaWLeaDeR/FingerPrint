@@ -1,19 +1,16 @@
 
-Zsquid:S1854§";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ƒ°ÖÄÍ-
-:squid:S1643h"Use a StringBuilder instead.(Ï©ŠÆ8ƒ°ÖÄÍ-
-qsquid:S2095("NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8úí¿½Í-
-msquid:S20950"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ÕÅËË-
-usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 87 to the 15 allowed.(†àªÕÿÿÿÿÿ8ÕÅËË-
+:squid:S1643h"Use a StringBuilder instead.(Ï©ŠÆ8µÎøçÍ-
+Zsquid:S1854«";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 92 to the 15 allowed.(†àªÕÿÿÿÿÿ8µÎøçÍ-
+Dsquid:S1481x"&Remove this unused "s" local variable.(âå±½8µÎøçÍ-
+Zsquid:S1854§";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+Zsquid:S1854¡";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+:squid:S1643N"Use a StringBuilder instead.(ß®Ö›8µÎøçÍ-
+:squid:S1643Q"Use a StringBuilder instead.(Ï©ŠÆ8µÎøçÍ-
+gsquid:S3252 "IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8µÎøçÍ-
+msquid:S2095."JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8µÎøçÍ-
+qsquid:S2095'"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8µÎøçÍ-
 :squid:S1643b"Use a StringBuilder instead.(êòíØ8ƒ°ÖÄÍ-
-msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8™¼±íÊ-
-Zsquid:S1854¡";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ƒ°ÖÄÍ-
-Dsquid:S1481x"&Remove this unused "s" local variable.(âå±½8ƒ°ÖÄÍ-
-:squid:S1643P"Use a StringBuilder instead.(Ï©ŠÆ8ƒ°ÖÄÍ-
-bsquid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8Ò‚ØäÍ-
-gsquid:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8ÕÅËË-
-V
-squid:S106S"9Replace this use of System.out or System.err by a logger.(©èİ8ëô¦çÍ-
-:squid:S1643L"Use a StringBuilder instead.(êòíØ8€¯ƒõË-
-:squid:S1643c"Use a StringBuilder instead.(ß®Ö›8Â–øÄÍ-
-:squid:S1643M"Use a StringBuilder instead.(ß®Ö›8ÆÍÕÄÍ-
-Zsquid:S1854«";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8ƒ°ÖÄÍ-
+msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ÕÅËË-
+:squid:S1643M"Use a StringBuilder instead.(êòíØ8€¯ƒõË-
+:squid:S1643c"Use a StringBuilder instead.(ß®Ö›8µÎøçÍ-
