@@ -1,21 +1,16 @@
 
-:squid:S1643_"Use a StringBuilder instead.(ß®Ö›8§—Ø´Ç-
-:squid:S1643O"Use a StringBuilder instead.(ß®Ö›8§—Ø´Ç-
-:squid:S1643I"Use a StringBuilder instead.(ß®Ö›8§—Ø´Ç-
-:squid:S1643F"Use a StringBuilder instead.(î¾¶8Ã“€·Ç-
-\squid:S4973W"9Use the "equals" method if value comparison was intended.(ŸÂÑ­øÿÿÿÿ8Ã“€·Ç-
-9squid:S3626C"Remove this redundant jump.(ÉŠ©ƒ8Ã“€·Ç-
-?squid:S1643H"Use a StringBuilder instead.(··ñøùÿÿÿÿ8áğÓªÇ-
-psquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 74 to the 15 allowed.(œû¿Ø8áğÓªÇ-
-Zsquid:S1854›";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8Ã“€·Ç-
-:squid:S1643c"Use a StringBuilder instead.(ü©8Ã“€·Ç-
-:squid:S1643K"Use a StringBuilder instead.(êòíØ8Ã“€·Ç-
-:squid:S1643R"Use a StringBuilder instead.(Ï©ŠÆ8Ã“€·Ç-
-nsquid:S2259h"QA "NullPointerException" could be thrown; "breakTimeCalculator" is nullable here.(¹›É]8Ã“€·Ç-
-:squid:S1643N"Use a StringBuilder instead.(êòíØ8Ã“€·Ç-
-Vsquid:S4973="9Use the "equals" method if value comparison was intended.(ç“°8Ã“€·Ç-
-Dsquid:S1481x"&Remove this unused "s" local variable.(âå±½8Ã“€·Ç-
-:squid:S1643^"Use a StringBuilder instead.(êòíØ8Ã“€·Ç-
-:squid:S1643d"Use a StringBuilder instead.(Ï©ŠÆ8§—Ø´Ç-
-Rsquid:S2209h"5Change this instance-reference to a static reference.(¹›É]8Ã“€·Ç-
-:squid:S1643G"Use a StringBuilder instead.(‹¸€™8áğÓªÇ-
+qsquid:S2095'"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ˆ’Äåıÿÿÿÿ8µÎøçÍ-
+:squid:S1643M"Use a StringBuilder instead.(êòíØ8€¯ƒõË-
+msquid:S2095/"JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¤…›“ûÿÿÿÿ8ÕÅËË-
+:squid:S1643h"Use a StringBuilder instead.(Ï©ŠÆ8µÎøçÍ-
+Dsquid:S1481x"&Remove this unused "s" local variable.(âå±½8µÎøçÍ-
+:squid:S1643N"Use a StringBuilder instead.(ß®Ö›8µÎøçÍ-
+msquid:S2095."JUse try-with-resources or close this "XSSFWorkbook" in a "finally" clause.(¼Ö‰»üÿÿÿÿ8µÎøçÍ-
+Zsquid:S1854¡";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+Zsquid:S1854«";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+:squid:S1643b"Use a StringBuilder instead.(êòíØ8ƒ°ÖÄÍ-
+:squid:S1643Q"Use a StringBuilder instead.(Ï©ŠÆ8µÎøçÍ-
+gsquid:S3252 "IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(¢¡´8µÎøçÍ-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 92 to the 15 allowed.(†àªÕÿÿÿÿÿ8µÎøçÍ-
+Zsquid:S1854§";Remove this useless assignment to local variable "cellnum".(¡êÊ¬8µÎøçÍ-
+:squid:S1643c"Use a StringBuilder instead.(ß®Ö›8µÎøçÍ-

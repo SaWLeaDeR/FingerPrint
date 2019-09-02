@@ -7,3 +7,14 @@ c
 3src/main/java/de/vogella/fatih/com/FindBiggest.java,e\8\e806e0f991c06a204c7c41eed2c5f112ee027866
 \
 ,src/main/java/de/vogella/fatih/com/Main.java,b\5\b597cbb9527d94f6bbb9fbb990757e1fd2be4684
+Y
+)out/artifacts/FingerPrint_jar/MANIFEST.MF,0\0\00d3ee478a44c988835da6e42a64d5aa09a33da1
+R
+"src/main/java/META-INF/MANIFEST.MF,6\3\63ef5783cbf71fdf39c1fd6ae6873fd812259930
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+j
+:src/main/java/de/vogella/fatih/com/WorkHourCalculator.java,b\7\b7f2954652e3a9c603bf46e6c9af04a9518f209c
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

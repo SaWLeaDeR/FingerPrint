@@ -12,17 +12,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         calculator();
     }
 
-    static void calculator() throws IOException {
+    static void calculator() throws IOException, ParseException {
         JFrame frame = new JFrame("text");
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setCurrentDirectory(new File("."));
@@ -34,7 +34,7 @@ public class Main {
         jFileChooser.showOpenDialog(frame);
 
         File excelFile = jFileChooser.getSelectedFile();
-        File outputFile = new File(jFileChooser.getSelectedFile().getName().replaceFirst("[.][^.]+$", "") + "_output.xlsx");
+        File outputFile = new File(jFileChooser.getSelectedFile().getName().replaceFirst("[.][^.]+$", "") + "-output.xlsx");
         FileInputStream fis = new FileInputStream(excelFile);
         FileOutputStream fos = new FileOutputStream(outputFile);
         frame.dispose();
@@ -60,35 +60,33 @@ public class Main {
             Iterator<Cell> cellIterator = row.cellIterator();
 
             if (row.getRowNum() != 0) {
-                if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4)) && DateUtil.isCellDateFormatted(row.getCell(5))) {
+                if (!row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(4))) {
                     value = row.getCell(3).toString();
                     startrownumbers.add(row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes());
+
                     if (!lasthourkeepertemporarily.isEmpty() && keeper.equals(lasthourkeepertemporarily)) {
                         endsrownumbers.add(lasthourkeepertemporarily);
                     }
+                    if (DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    }
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        if (cell.getColumnIndex() == 5) {
-                            continue;
-                        } else if (cell.getColumnIndex() == 4) {
-                            if (DateUtil.isCellDateFormatted(cell)) {
-                                input += cell.getDateCellValue().getHours();
-                                input += ":";
-                                input += cell.getDateCellValue().getMinutes();
-                                input += ",";
-                            } else {
-                                input += cell.toString();
-                            }
-                        } else {
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1 || cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
                             input += cell.toString();
                             input += ",";
                         }
                     }
                     input += "\n";
-
-                } else if (row.getCell(3).toString().equals(value) && DateUtil.isCellDateFormatted(row.getCell(5))) {
-                    lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
-                    keeper = lasthourkeepertemporarily;
+                } else if (row.getCell(3).toString().equals(value)) {
+                    if (DateUtil.isCellDateFormatted(row.getCell(4)) && !DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        lasthourkeepertemporarily = row.getCell(4).getDateCellValue().getHours() + ":" + row.getCell(4).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    } else if (DateUtil.isCellDateFormatted(row.getCell(5))) {
+                        lasthourkeepertemporarily = row.getCell(5).getDateCellValue().getHours() + ":" + row.getCell(5).getDateCellValue().getMinutes();
+                        keeper = lasthourkeepertemporarily;
+                    }
                 } else if (lasthourkeepertemporarily.equals(keeper) && !row.getCell(3).toString().equals(value)) {
                     endsrownumbers.add(lasthourkeepertemporarily);
                     keeper = "000";
@@ -96,24 +94,21 @@ public class Main {
                 if (!DateUtil.isCellDateFormatted(row.getCell(5)) && !DateUtil.isCellDateFormatted(row.getCell(4))) {
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
-                        input += cell.toString();
-                        input += ",";
+                        if (cell.getColumnIndex() == 0 || cell.getColumnIndex() == 1 || cell.getColumnIndex() == 2 || cell.getColumnIndex() == 3) {
+                            input += cell.toString();
+                            input += ",";
+                        }
                     }
                     startrownumbers.add("0:0");
                     endsrownumbers.add("0:0");
-                    input += "00,";
                     input += "\n";
                 }
             }
         }
-        Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate();
+        endsrownumbers.add(lasthourkeepertemporarily);
+        Pair<List<List<String>>, List<Long>> p = BreakTimeCalculator.calculate(jFileChooser);
         List<List<String>> breakTime = p.getKey();
         List<Long> list = p.getValue();
-        for (int i = breakTime.size() - 2; i > 0; i--) {
-            if (breakTime.get(i).get(0).equals("0:0")) {
-                Collections.swap(breakTime, i + 1, i);
-            }
-        }
         CellStyle style = workbook1.createCellStyle();
         CellStyle style1 = workbook1.createCellStyle();
         style.setDataFormat(workbook1.getCreationHelper().createDataFormat().getFormat("HH:mm"));
@@ -131,21 +126,26 @@ public class Main {
                     Cell cell = row.createCell(cellnum++);
                     cell.setCellValue(obj);
                 } else {
-                    if (cellnum == 4) {
-                        Cell cell = row.createCell(cellnum++);
-                        if (list.get(rownum - 2) > 30l) {
-                            cell.setCellStyle(style1);
-                        } else {
-                            cell.setCellStyle(style);
-                        }
-
-                        cell.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
-                    }
                     Cell cell = row.createCell(cellnum++);
                     cell.setCellValue(obj);
+                    if (cellnum == 4) {
+                        Cell cell2 = row.createCell(cellnum++);
+                        if (list.get(rownum - 2) > 30L) {
+                            cell2.setCellStyle(style1);
+                        } else {
+                            cell2.setCellStyle(style);
+                        }
+                        cell2.setCellValue(String.format("%s dk ", list.get(rownum - 2)));
+                    }
+
+                    if (cellnum == 5) {
+                        Cell cell6 = row.createCell(cellnum++);
+                        cell6.setCellValue(startrownumbers.get(rownum - 2));
+                    }
                     if (cellnum == 6) {
                         Cell cell3 = row.createCell(cellnum++);
                         cell3.setCellValue(endsrownumbers.get(rownum - 2));
+                        cell3.setCellStyle(style);
                     }
                     if (cellnum == 7) {
                         Cell cell4 = row.createCell(cellnum++);
@@ -157,9 +157,26 @@ public class Main {
                     }
                 }
             }
-            Cell cell = row.createCell(cellnum++);
-            cell.setCellFormula("G" + rownum + "-F" + rownum + "-I" + rownum + "+H" + rownum);
-            cell.setCellStyle(style);
+            if (rownum == 1) {
+                Cell cell = row.createCell(cellnum++);
+                cell.setCellValue("");
+            } else if (endsrownumbers.get(rownum - 2).contains("10:5") || startrownumbers.get(rownum - 2).contains("15:") ||
+                endsrownumbers.get(rownum - 2).contains("11:") || startrownumbers.get(rownum - 2).contains("14:") ||
+                endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("13:") ||
+                endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("12:")) {
+                Cell cell = row.createCell(cellnum++);
+                cell.setCellFormula("G" + rownum + "-F" + rownum);
+                cell.setCellStyle(style);
+            } else {
+                Cell cell = row.createCell(cellnum++);
+                if (!startrownumbers.get(rownum - 2).equals("0:0") && !endsrownumbers.get(rownum - 2).equals("0:0")) {
+                    String a = WorkHourCalculator.calculate(startrownumbers.get(rownum - 2), endsrownumbers.get(rownum - 2), breakTime.get(rownum - 2));
+                    cell.setCellValue(a);
+                } else {
+                    cell.setCellValue("0:0");
+                }
+                cell.setCellStyle(style);
+            }
         }
         workbook1.write(fos);
         fos.close();
