@@ -161,9 +161,9 @@ public class Main {
                 Cell cell = row.createCell(cellnum++);
                 cell.setCellValue("");
             } else if (endsrownumbers.get(rownum - 2).contains("10:5") || startrownumbers.get(rownum - 2).contains("15:") ||
-                    endsrownumbers.get(rownum - 2).contains("11:") || startrownumbers.get(rownum - 2).contains("14:") ||
-                    endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("13:") ||
-                    endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("12:")) {
+                endsrownumbers.get(rownum - 2).contains("11:") || startrownumbers.get(rownum - 2).contains("14:") ||
+                endsrownumbers.get(rownum - 2).contains("12:") || startrownumbers.get(rownum - 2).contains("13:") ||
+                endsrownumbers.get(rownum - 2).contains("13:") || startrownumbers.get(rownum - 2).contains("12:")) {
                 Cell cell = row.createCell(cellnum++);
                 cell.setCellFormula("G" + rownum + "-F" + rownum);
                 cell.setCellStyle(style);

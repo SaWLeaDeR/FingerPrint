@@ -15,3 +15,6 @@ R
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 j
 :src/main/java/de/vogella/fatih/com/WorkHourCalculator.java,b\7\b7f2954652e3a9c603bf46e6c9af04a9518f209c
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

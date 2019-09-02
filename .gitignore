@@ -4,7 +4,7 @@
 # Intellij
 ######################
 .idea/
-.idea/sonarlint
+sonarlint/
 libraries/
 dictionaries
 artifacts
